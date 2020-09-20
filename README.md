@@ -1,4 +1,4 @@
-# mongoose-morgan
+# mongoose-morgan-body
 
 [![dependencies Status](https://david-dm.org/nemanjapetrovic/mongoose-morgan/status.svg)](https://david-dm.org/nemanjapetrovic/mongoose-morgan)
 [![devDependencies Status](https://david-dm.org/nemanjapetrovic/mongoose-morgan/dev-status.svg)](https://david-dm.org/nemanjapetrovic/mongoose-morgan?type=dev)
@@ -12,19 +12,19 @@ Is an npm package which is combining [mongoose](https://www.npmjs.com/package/mo
 
 To install this package just run:
 
-```npm install mongoose-morgan```
+```npm install mongoose-morgan-body```
 
 # Basic usage example
 
-Here is an example of using mongoose-morgan together with the express app:
+Here is an example of using mongoose-morgan-body together with the express app:
 
 ```
 // express
 var express = require('express');
 var app = express();
 
-// mongoose-morgan
-var morgan = require('mongoose-morgan');
+// mongoose-morgan-body
+var morgan = require('mongoose-morgan-body');
 
 // connection-data
 var port = process.env.port || 8080;
@@ -43,7 +43,7 @@ The example from the above will create inside `logs-db` database collection call
 
 # Detailed usage
 
-[mongoose-morgan](https://www.npmjs.com/package/mongoose-morgan) is accepting three parameters:
+[mongoose-morgan-body](https://www.npmjs.com/package/mongoose-morgan-body) is accepting three parameters:
 
 - mongoData : object type with next properties
     - required {string} connectionString
@@ -55,7 +55,7 @@ The example from the above will create inside `logs-db` database collection call
     >- optional {int} cappedMax ([pull req](https://github.com/nemanjapetrovic/mongoose-morgan/pull/2) by @Ni55aN)
     >- optional {string} dbName ([pull req](https://github.com/nemanjapetrovic/mongoose-morgan/pull/5) by @pmstss)
     >- optional {bool} useNewUrlParser (default: true)
-    >- optional {bool} useUnifiedTopology (default: true) ([issue #8](https://github.com/nemanjapetrovic/mongoose-morgan/issues/8))
+    >- optional {bool} useUnifiedTopology (default: true) ([issue #8](https://github.com/nemanjapetrovic/mongoose-morgan-body/issues/8))
 - options : object type - [standrad morgan options](https://github.com/expressjs/morgan#options)
 - format : string type - [standrad mrogan format](https://github.com/expressjs/morgan#predefined-formats)
 
@@ -88,7 +88,7 @@ app.use(morgan({
 
 The code above will log only data in `dev` format and will skip all the logs if the response status code is less than 400. Data will be stored in `logs-db` database in `error_logger` collection.
 
-# [Contribution](https://github.com/nemanjapetrovic/mongoose-morgan/blob/master/CONTRIBUTING.md)
+# [Contribution](https://github.com/nemanjapetrovic/mongoose-morgan-body/blob/master/CONTRIBUTING.md)
 
 Feel free to contribute by forking this repository, making some changes, and submitting pull requests. For any questions or advice place an issue on this repository.
 
