@@ -82,7 +82,7 @@ app.use(morgan({
         return res.statusCode < 400;
     }
    },
-   'dev'
+    ':method :url :status :response-time ms - :res[content-length] :body - :req[content-length]'
 ));
 ```
 
