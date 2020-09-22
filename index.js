@@ -81,8 +81,12 @@ function MongooseMorgan(mongoData, options, format) {
     var Log = mongoose.model('Log', logSchema, collection);
 
     function onLine(line) {
-        console.log(line);
         const extractIt = line.split("===");
+        try {
+            console.log(extractIt.slice(0, 4).join("-"));
+        } catch (err) {
+            console.log("Error from mongoose-morgan-body:", err);
+        }
 
         var logModel = new Log();
 
