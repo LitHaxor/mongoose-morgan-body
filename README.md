@@ -86,6 +86,26 @@ app.use(morgan({
 ));
 ```
 
+If you want to store data in db in seperate fields, 
+
+format: `':method === :url === :status === :response-time ms === :res[content-length] === :body  === :resBody  === :req[content-length]'`
+
+Data will store in following format in DB:
+```
+        date: {
+            type: Date,
+            default: Date.now
+        },
+        log: String,
+        endpoint: String,
+        method: String,
+        bodySize: String,
+        responseCode: String,
+        responseTime: String,
+        requestBody: Object,
+        responseBody: Object,
+```
+
 The code above will log only data in `dev` format and will skip all the logs if the response status code is less than 400. Data will be stored in `logs-db` database in `error_logger` collection.
 
 # [Contribution](https://github.com/nemanjapetrovic/mongoose-morgan-body/blob/master/CONTRIBUTING.md)

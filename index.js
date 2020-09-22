@@ -16,6 +16,8 @@ function MongooseMorgan(mongoData, options, format) {
     // Filter the arguments
     var args = Array.prototype.slice.call(arguments);
     morgan.token('body', (req, res) => JSON.stringify(req.body));
+    morgan.token('resBody', (req, res) => { return JSON.stringify(res.body) });
+
     if (args.length == 0 || !mongoData.connectionString) {
         throw new Error('Mongo connection string is null or empty. Try by adding this: { connectionString : \'{mongo_url}\'}');
     }
@@ -59,7 +61,14 @@ function MongooseMorgan(mongoData, options, format) {
                 type: Date,
                 default: Date.now
             },
-            log: String
+            log: String,
+            endpoint: String,
+            method: String,
+            bodySize: String,
+            responseCode: String,
+            responseTime: String,
+            requestBody: Object,
+            responseBody: Object,
         }, capped ? {
             capped: {
                 size: cappedSize,
@@ -73,8 +82,29 @@ function MongooseMorgan(mongoData, options, format) {
 
     function onLine(line) {
         console.log(line);
+        const extractIt = line.split("===");
+
         var logModel = new Log();
+
         logModel.log = line;
+        logModel.method = extractIt[0].trim() || '';
+        logModel.endpoint = extractIt[1].trim() || '';
+        logModel.responseCode = extractIt[2].trim() || '';
+        logModel.responseTime = extractIt[3].trim() || '';
+        logModel.bodySize = extractIt[4].trim() || '';
+        logModel.requestBody = "";
+
+        try {
+            logModel.requestBody = JSON.parse(extractIt[5]) || {};
+        } catch {
+            logModel.requestBody = {};
+        }
+
+        try {
+            logModel.responseBody = extractIt[6] || {};
+        } catch {
+            logModel.responseBody = {};
+        }
 
         logModel.save(function (err) {
             if (err) {
