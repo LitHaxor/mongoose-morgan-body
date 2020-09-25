@@ -94,7 +94,7 @@ function MongooseMorgan(mongoData, options, format) {
         logModel.method = extractIt[0].trim() || '';
         logModel.endpoint = extractIt[1].trim() || '';
         logModel.responseCode = extractIt[2].trim() || '';
-        logModel.responseTime = extractIt[3].trim() || '';
+        logModel.responseTime = parseFloat(extractIt[3].trim().replace(/[^\d.-]/g, '')) || '';
         logModel.bodySize = extractIt[4].trim() || '';
         logModel.requestBody = "";
 
