@@ -66,7 +66,7 @@ function MongooseMorgan(mongoData, options, format) {
             method: String,
             bodySize: String,
             responseCode: String,
-            responseTime: String,
+            responseTime: Number,
             requestBody: Object,
             responseBody: Object,
         }, capped ? {
