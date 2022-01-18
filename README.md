@@ -1,13 +1,5 @@
 # mongoose-morgan-body
 
-[![dependencies Status](https://david-dm.org/nemanjapetrovic/mongoose-morgan/status.svg)](https://david-dm.org/nemanjapetrovic/mongoose-morgan)
-[![devDependencies Status](https://david-dm.org/nemanjapetrovic/mongoose-morgan/dev-status.svg)](https://david-dm.org/nemanjapetrovic/mongoose-morgan?type=dev)
-[![Known Vulnerabilities](https://snyk.io/test/github/nemanjapetrovic/mongoose-morgan/badge.svg?targetFile=package.json)](https://snyk.io/test/github/nemanjapetrovic/mongoose-morgan?targetFile=package.json)
-
-[![NPM](https://nodei.co/npm/mongoose-morgan.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/mongoose-morgan/)
-
-Is an npm package which is combining [mongoose](https://www.npmjs.com/package/mongoose) and [morgan](https://www.npmjs.com/package/morgan) packages by adding an additional functionality to log morgan data into MongoDB.
-
 # Install
 
 To install this package just run:
@@ -50,12 +42,12 @@ The example from the above will create inside `logs-db` database collection call
     >- optional {string} collection
     >- optional {string} user
     >- optional {string} pass
-    >- optional {bool} capped ([pull req](https://github.com/nemanjapetrovic/mongoose-morgan/pull/2) by @Ni55aN)
-    >- optional {int} cappedSize ([pull req](https://github.com/nemanjapetrovic/mongoose-morgan/pull/2) by @Ni55aN)
-    >- optional {int} cappedMax ([pull req](https://github.com/nemanjapetrovic/mongoose-morgan/pull/2) by @Ni55aN)
-    >- optional {string} dbName ([pull req](https://github.com/nemanjapetrovic/mongoose-morgan/pull/5) by @pmstss)
+    >- optional {bool} capped 
+    >- optional {int} cappedSize 
+    >- optional {int} cappedMax 
+    >- optional {string} dbName 
     >- optional {bool} useNewUrlParser (default: true)
-    >- optional {bool} useUnifiedTopology (default: true) ([issue #8](https://github.com/nemanjapetrovic/mongoose-morgan-body/issues/8))
+    >- optional {bool} useUnifiedTopology (default: true) 
 - options : object type - [standrad morgan options](https://github.com/expressjs/morgan#options)
 - format : string type - [standrad mrogan format](https://github.com/expressjs/morgan#predefined-formats)
 
