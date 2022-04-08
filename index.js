@@ -99,13 +99,21 @@ function MongooseMorgan(mongoData, options, format) {
         logModel.requestBody = "";
 
         try {
-            logModel.requestBody = JSON.parse(extractIt[5]) || {};
+            const body = JSON.parse(extractIt[5])
+            if (body.password !== undefined)
+                delete body.password;
+
+            logModel.requestBody = body || {};
         } catch {
             logModel.requestBody = {};
         }
 
         try {
-            logModel.responseBody = extractIt[6] || {};
+            const body = extractIt[6] || {};
+            if (body.password !== undefined)
+                delete body.password;
+
+            logModel.requestBody = body || {};
         } catch {
             logModel.responseBody = {};
         }
